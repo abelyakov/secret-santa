@@ -1,0 +1,47 @@
+body, html {
+/*	margin:0;
+	padding:0;*/
+	font-family: Webdings;
+}
+
+h1 {
+	text-align: center;
+}
+
+#main {
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px;
+
+	top: 50%;
+	left: 50%;
+
+	/*background: #2d3;*/
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+}
+
+/*div{
+    bottom: 0; left: 0; top: 0; right: 0;
+    margin: auto;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #09345C;
+}*/
+
+#back {
+	float:right;
+	/*width:350px;
+	background: #4c3;*/
+
+}
+
+.right-img {
+	max-width: 100%;
+	height: auto;
+}
