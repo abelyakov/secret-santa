@@ -55,7 +55,7 @@
       wrap-params
       middleware/wrap-json-response))
 
-
-(defn -main  [port]
-    (run-jetty app  {:port  (read-string port) :join? false}))
+(defn -main  [& args]
+    (let  [port  (Integer/parseInt  (get  (System/getenv) "PORT" "8080"))]
+          (run-jetty app  {:port port})))
 
