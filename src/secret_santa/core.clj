@@ -55,4 +55,6 @@
       middleware/wrap-json-response))
 
 
+(defn main  [port]
+    (run-jetty app  {:port  (read-string port) :join? false}))
 
