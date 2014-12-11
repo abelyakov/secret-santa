@@ -1,4 +1,5 @@
 (ns secret-santa.core
+  (:gen-class)
   (:require [ring.adapter.jetty :refer :all]
             [ring.util.response :refer :all]
             [ring.middleware.content-type :refer :all]
@@ -55,6 +56,6 @@
       middleware/wrap-json-response))
 
 
-(defn main  [port]
+(defn -main  [port]
     (run-jetty app  {:port  (read-string port) :join? false}))
 

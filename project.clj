@@ -7,8 +7,8 @@
   		 [ring "1.3.2"]
   		 [ring/ring-json "0.3.1"]
   		 [compojure "1.3.1"]]
-  :ring {:handler secret-santa.core/app}
   :main secret-santa.core
+  :ring {:handler secret-santa.core/app}
   :aot [secret-santa.core secret-santa.rand]
   :min-lein-version "2.0.0"
   :uberjar-name "tnsanta.jar")
