@@ -28,6 +28,9 @@
 (defn save-email [email]
   (swap! emails conj email))
 
+(defn remove-email [email]
+  (swap! emails disj email))
+
 (defn gen-pairs [l] 
   (let [sh (shuffle l)]  
   (if (some true? (map = l sh))
@@ -53,6 +56,7 @@
   (GET "/list" [] (json/write-str @emails))
   (GET "/rand" [] (json/write-str (start-draw)))
   (GET "/mail" [] (send-emails (start-draw)))
+  (GET "/remove/:email" [email] (do (remove-email email) (redirect "/thanks.html")))
   (route/resources "/")
   (route/not-found "<h1>Page not found!</h1>"))
 
