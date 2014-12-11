@@ -15,8 +15,8 @@
 
 (defn send-email [to text]
   (postal/send-message {:host "smtp.gmail.com"
-                        :user "lsthost@gmail.com"
-                        :pass "zara256tustra"
+                        :user ""
+                        :pass ""
                         :ssl true
                         }
                        {:from "lstghost@gmail.com "
