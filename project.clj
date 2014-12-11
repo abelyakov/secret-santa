@@ -10,4 +10,4 @@
   :ring {:handler secret-santa.core/app}
   :main secret.santa.core
   :min-lein-version "2.0.0"
-  :uberjar-name tnsanta.jar)
+  :uberjar-name "tnsanta.jar")
