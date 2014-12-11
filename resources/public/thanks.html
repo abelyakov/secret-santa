@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Тайный Дед Мороз</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./assets/style.css"/>	
+  		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	</head>
+	<body>
+			<div id="left">
+				<img class="left-img" src="./assets/olen.jpg"/>
+			</div>	
+			<div id="main">
+				<p>Cпасибо за участие! Жди письма от деда мороза.</p>
+				<p>Уже ждут подарка:<p>
+				<ul id="party"></ol>
+		
+			</div>
+			<div id="back">
+				<img class="right-img" src="./assets/olen.jpg"/>
+			</div>			
+	</body>
+
+				<script>
+					$(document).ready(function() {
+   						$.ajax({url: "/list",
+   								type: "GET",
+   								dataType: "json",
+
+   								success: function(result){
+   									console.log(result);
+
+   									$.each(result, function(index, val) {
+   										var str = "<li>" + val + "</li>";
+   										$("#party").append(str);
+   									});
+   								}});
+					console.log("test1");
+					});
+				</script>
+
+
+
+</html>
