@@ -57,6 +57,7 @@
   (GET "/rand" [] (json/write-str (start-draw)))
   (GET "/mail" [] (send-emails (start-draw)))
   (GET "/remove/:email" [email] (do (remove-email email) (redirect "/thanks.html")))
+  (GET "/clear" [] (do (reset! emails #{}) (redirect "/thanks.html")))
   (route/resources "/")
   (route/not-found "<h1>Page not found!</h1>"))
 
