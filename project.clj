@@ -9,6 +9,6 @@
   		 [compojure "1.3.1"]]
   :main secret-santa.core
   :ring {:handler secret-santa.core/app}
-  :aot [secret-santa.core secret-santa.rand]
+  :aot [secret-santa.core]
   :min-lein-version "2.0.0"
   :uberjar-name "tnsanta.jar")
