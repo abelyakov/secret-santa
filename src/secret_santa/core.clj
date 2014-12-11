@@ -10,7 +10,6 @@
             [compojure.handler :refer [api site]]
             [clojure.data.json :as json]
             [clojure.pprint :as pprint]
-            [secret-santa.rand :as rand]
             [postal.core :as postal]))
 
 (defn send-email [to text]
@@ -28,14 +27,21 @@
 
 (defn save-email [email]
   (swap! emails conj email))
- 
+
+(defn gen-pairs [l] 
+  (let [sh (shuffle l)]  
+  (if (some true? (map = l sh))
+    (gen-pairs l)
+    (zipmap l sh)))) 
 
 (defn start-draw []
   (let [email-list (into '() @emails)]
     (cond 
       (empty? email-list) {}
       (= 1 (count email-list)) {(first email-list) (first email-list)}
-      :else (rand/gen-pairs email-list))))
+      :else (gen-pairs email-list))))
+
+
 
 (defn send-emails [emails]
   (map #(send-email (key %) (val %)) emails))
